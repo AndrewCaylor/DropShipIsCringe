@@ -1,10 +1,10 @@
 {
 
-  "description": "Adds a page action to toggle applying CSS to pages.",
+  "description": "Links to Alibaba reverse image search. Copies Amazon product image URL to clipboard.",
   "manifest_version": 2,
-  "name": "apply-css",
+  "name": "Check Alibaba Price",
   "version": "1.0",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/apply-css",
+  "homepage_url": "https://github.com/AndrewCaylor/DropShipIsCringe",
 
   "background": {
     "scripts": ["background.js"]

@@ -1,32 +1,63 @@
-// get image link
+function getLink() {
+  const image = getImage();
+  const imageLink = image.src;
 
-let image = document.getElementById("main-image-container");
-// get the image element from the image container
-const images = image.querySelectorAll("img");
-
-
-let imageLink="none";
-for (let image of images) {
-  if (image.src.endsWith(".jpg")) {
-    imagelink = image.src;
-    break;
+  if (!imageLink) {
+    console.log("DropShipIsCringe - Can't find a jpg!");
+    return;
   }
+
+  return imageLink;
 }
 
-const title = document.getElementById("titleSection");
+function getImage() {
+    const box = document.getElementById("main-image-container");
 
-// create another div and overlay it on the item
-let overlay = document.createElement("iframe");
-overlay.src = browser.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imagelink);
-overlay.style.position = "absolute";
-overlay.style.top = "-20px";
-overlay.style.right = "-20px";
-overlay.style.height = "3em";
-overlay.style.width = "3em";
-overlay.style.border = "none";
+    if (!box) {
+      console.log("DropShipIsCringe - No image found!");
+      return;
+    }
+  
+    const items = box.querySelectorAll("li");  
+    for (let item of items) {
+      if (item.checkVisibility() && item.classList.contains("item")) {
+        const images = item.querySelectorAll("img");
+        
+        for (let image of images) {
+          if (image.src.endsWith(".jpg")) {
+            return image;
+          }
+        }
+      }
+    }
+}
 
-// top left of the parent div
+function createOverlay() {
+    console.log("DropShipIsCringe - Creating overlay...");
+    // Create iframe for the button
+    const overlay = document.createElement("iframe");
+    overlay.style.position = "absolute";
+    overlay.style.top = "0em";
+    overlay.style.right = "0em";
+    overlay.style.height = "3em";
+    overlay.style.width = "3em";
+    overlay.style.border = "none";
 
+    const imageLink = getLink();
+    overlay.src = browser.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imageLink);
 
-title.appendChild(overlay);
-title.style.position = "relative";
+    // Append the iframe to the title section
+    const price = document.getElementById("corePriceDisplay_desktop_feature_div");
+    price.style.position = "relative";
+    price.appendChild(overlay);
+
+    overlay.addEventListener("mouseover", function(event) {
+      const imageLink = getLink();
+      overlay.src = browser.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imageLink);
+    });
+
+    return overlay;
+}
+
+createOverlay();
+

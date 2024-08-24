@@ -1,8 +1,9 @@
 document.getElementById("ali").onclick = function() {
   const urlParams = new URLSearchParams(window.location.search);
-  const myParam = urlParams.get('url');
+  const imageLink = urlParams.get('url');
 
-  navigator.clipboard.writeText(myParam).then(function() {
+  navigator.clipboard.writeText(imageLink).then(function() {
     window.open("https://www.alibaba.com");
+    // window.open(imageLink);
   });
 }
