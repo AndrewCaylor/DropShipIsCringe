@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Check Alibaba Price",
+  "name": "Easy Alibaba Image Search",
   "version": "0.41",
   "description": "Links to Alibaba reverse image search. Copies Amazon product image URL to clipboard.",
   "web_accessible_resources": [{

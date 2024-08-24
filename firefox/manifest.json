@@ -2,7 +2,7 @@
 
   "description": "Links to Alibaba reverse image search. Copies Amazon product image URL to clipboard.",
   "manifest_version": 2,
-  "name": "Check Alibaba Price",
+  "name": "Easy Alibaba Image Search",
   "version": "1.0",
   "homepage_url": "https://github.com/AndrewCaylor/DropShipIsCringe",
   "background": {
