@@ -44,7 +44,7 @@ function createOverlay() {
     overlay.allow = "clipboard-write";
 
     const imageLink = getLink();
-    overlay.src = browser.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imageLink);
+    overlay.src = chrome.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imageLink);
 
     // Append the iframe to the title section
     const price = document.getElementById("corePriceDisplay_desktop_feature_div");
@@ -53,7 +53,7 @@ function createOverlay() {
 
     overlay.addEventListener("mouseover", function(event) {
       const imageLink = getLink();
-      overlay.src = browser.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imageLink);
+      overlay.src = chrome.runtime.getURL("button.html") + "?url=" + encodeURIComponent(imageLink);
     });
 
     return overlay;
