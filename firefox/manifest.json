@@ -1,0 +1,29 @@
+{
+
+  "description": "Adds a page action to toggle applying CSS to pages.",
+  "manifest_version": 2,
+  "name": "apply-css",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/apply-css",
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.com/*"],
+      "js": ["loader.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "button.html",
+    "button.css",
+    "button.js"
+  ]
+}
